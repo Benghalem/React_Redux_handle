@@ -5,17 +5,24 @@ import { Header } from './components/Header';
 import { Home } from "./components/Home";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import { Provider } from 'react-redux';
+import { store } from './store/index';
+
 
 function App() {
   return (
     
     <BrowserRouter>   
       <Header />
+      
         <Routes>
-          <Route path='/home' element={<Home/>} />
+          
+            <Route path='/home' element={<Provider store={store}>  <Home/>  </Provider>} />
+         
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
         </Routes>
+       
   
     
     </BrowserRouter>
